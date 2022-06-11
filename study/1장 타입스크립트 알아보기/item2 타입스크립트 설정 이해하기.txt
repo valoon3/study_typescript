@@ -1,0 +1,23 @@
+1장
+
+item 2
+타입스크립트 설정 이해하기
+
+타입스크립트 설정이 되지 않은경우 명시되지 않은 자료형은 any 형으로 지정이되며 암시적 any 라고 부르고 타입체커의 기능은 무력해진다.
+
+● noImplicitAny 설정을 통하여 자료형을 명시하도록 해야한다.
+ - 코드의 가독성이 좋아지며, 개발자의 생산성이 향상된다.
+ - noImplicitAny 설정 해제는, 자바스크립트로 되어있는 기존 프로젝트를 타입스크립트로 전환하는 상황에서만 필요하다.
+
+● strictNullChecks 는 Null과 undefined가 모든 타입에서 허용되는지 확인하는 설정이다.
+ - const x: number = null;          // 정상, null은 유효한 값입니다.
+ - const x: number = null;          // ~ 'null' 형식은 'number' 형식에 할당할 수 없습니다.
+ - const x: number | null = null;   // 만약 null을 허용하려고 한다면, 의도를 명시적으로 드러냄으로써 오류를 고칠 수 있다.
+ - strictNullCheck를 사용하려면 먼저 noImplicitAny 설정이 먼저 필요하다.
+
+== 요약 ==
+1. 타입스크립트 설정은 가능하면 tsconfig.json을 사용하는 것이 좋다.
+2. 자바스크립트 프로젝트를 타입스크립트로 마이그레이션 하는 것이 이니라면 noImplicitAny를 설정하는 것이 좋다.
+3. undefined는 객체가 아닙니다 라는 런타임 오류를 방지하기 위해 strictNullChecks를 설정하는 것이 좋다.
+4. 타입스크립트에서 엄격한 체크를 하고 싶다면 strict 설정을 고려해야한다.
+
